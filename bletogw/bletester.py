@@ -12,8 +12,8 @@ message = "Hello"
 num_device = 1
 # Jumlah pengiriman message
 num_iter = 10
-# Jeda waktu pengiriman (dalam detik)
-sim_delay = 1
+# Jeda waktu pengiriman (dalam milliseconds)
+sim_delay = 500
 
 class PubThread(threading.Thread):
     def run(self):
@@ -29,7 +29,8 @@ class PubThread(threading.Thread):
             # To do : cetak delay ke layar
             print(delay)
             # Jeda pengiriman
-            time.sleep(sim_delay)
+            sim_delay_ms = sim_delay / 1000
+            time.sleep(sim_delay_ms)
 
 
 for i in range(0,num_device):

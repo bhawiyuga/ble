@@ -13,7 +13,7 @@ num_client = 1
 # Jumlah pengiriman message
 num_iter = 10
 # Jeda waktu pengiriman (dalam detik)
-sim_delay = 1
+sim_delay = 500
 
 class PubThread(threading.Thread):
     def run(self):
@@ -22,7 +22,7 @@ class PubThread(threading.Thread):
         for i in range(0, num_iter) :
             time_str = str(time.time())
             mqttc.publish(topic, time_str)
-            time.sleep(sim_delay)
+            time.sleep(sim_delay/1000)
 
 
 for i in range(0,num_client):
